@@ -13,10 +13,9 @@ import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutoCenter;
-import frc.robot.commands.IntakeOnCommand;
-import frc.robot.commands.IntakeOffCommand;
+
 import frc.robot.subsystems.Drive;
-import frc.robot.subsystems.Intake;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -32,12 +31,11 @@ public class RobotContainer {
   private static NetworkTableInstance tableInstance;
   private static NetworkTable limelight;
   public static Joystick stick;
-  // public static IntakeOnCommand IntakeCommand = new IntakeOnCommand();
+  // public static OnCommand Command = new OnCommand();
 
-  public static Intake IntakeSubsys = new Intake();
-  public IntakeOnCommand IntakeOnCommand = new IntakeOnCommand();
-  // public static Intake Intakemotor = new Intake();
-  // public static Intake;
+ 
+  // public static  motor = new ();
+  // public static ;
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -48,7 +46,7 @@ public class RobotContainer {
     tableInstance = NetworkTableInstance.getDefault();
     limelight = tableInstance.getTable("limelight");
     drive.setDefaultCommand(new ArcadeDrive());
-    IntakeSubsys.setDefaultCommand(new IntakeOffCommand());
+
   }
 
   public static double limelightX() {
@@ -64,8 +62,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     JoystickButton Aline = new JoystickButton(stick, 2);
     Aline.whenHeld(new AutoCenter());
-    JoystickButton intakeButtonMap = new JoystickButton(stick, Constants.INTAKE_BUTTON);
-    intakeButtonMap.whenHeld(new IntakeOnCommand());
+    
     
 
   }
